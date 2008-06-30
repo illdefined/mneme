@@ -47,7 +47,7 @@ static inline int free_slabs(struct slab* slab) {
 	while (slab) {
 		temp = slab;
 		slab = slab->next;
-		if (munmap(slab, pgsize))
+		if (munmap(temp, pgsize))
 			return -1;
 	}
 }
